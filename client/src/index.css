@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  * {
+    @apply border-border; /* This will now work with the border color defined in tailwind.config.js */
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply bg-gray-50 text-gray-900 transition-colors duration-200;
+  }
+
+  /* Dark mode body styles */
+  body.dark {
+    @apply bg-dark-900 text-gray-100;
+  }
+
+  /* Heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    @apply font-semibold;
+  }
+
+  /* Code block styles */
+  code {
+    font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New',
+      monospace;
+    @apply bg-gray-100 text-red-600 px-1 py-0.5 rounded text-sm;
+  }
+
+  /* Dark mode code styles */
+  body.dark code {
+    @apply bg-dark-700 text-red-400;
+  }
+
+  /* Selection styles */
+  ::selection {
+    @apply bg-srm-400 text-white;
+  }
+
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+
+  /* Dark mode scrollbar */
+  body.dark ::-webkit-scrollbar-track {
+    @apply bg-dark-800;
+  }
+
+  body.dark ::-webkit-scrollbar-thumb {
+    @apply bg-dark-600;
+  }
+}
+
+/* Custom components */
+@layer components {
+  /* Button styles */
+  .btn-primary {
+    @apply bg-srm-500 hover:bg-srm-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-srm-500 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply border border-srm-500 text-srm-500 hover:bg-srm-500 hover:text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-xl shadow-custom-light p-6 border border-gray-200;
+  }
+
+  .card-dark {
+    @apply bg-dark-800 rounded-xl shadow-custom-dark p-6 border border-dark-700;
+  }
+
+  /* Input field styles */
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-white text-gray-900 placeholder-gray-500;
+  }
+
+  .input-field-dark {
+    @apply w-full px-4 py-3 border border-dark-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all duration-200 bg-dark-700 text-gray-100 placeholder-gray-400;
+  }
+
+  /* Table styles */
+  .table-row {
+    @apply transition-colors duration-150 hover:bg-gray-50;
+  }
+
+  .table-row-dark {
+    @apply transition-colors duration-150 hover:bg-dark-700;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-error {
+    @apply bg-red-100 text-red-800;
+  }
+
+  /* Dark mode badge styles */
+  .badge-success-dark {
+    @apply bg-green-900 text-green-200;
+  }
+
+  .badge-warning-dark {
+    @apply bg-yellow-900 text-yellow-200;
+  }
+
+  .badge-error-dark {
+    @apply bg-red-900 text-red-200;
+  }
+
+  /* Loading spinner */
+  .spinner {
+    @apply animate-spin rounded-full border-2 border-gray-300 border-t-primary-500;
+  }
+
+  .spinner-dark {
+    @apply animate-spin rounded-full border-2 border-dark-600 border-t-primary-400;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply text-gray-700 hover:text-srm-500 transition-colors duration-200;
+  }
+
+  .nav-link-dark {
+    @apply text-gray-300 hover:text-srm-400 transition-colors duration-200;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-bg {
+    @apply bg-gradient-to-br from-blue-50 to-indigo-100;
+  }
+
+  .gradient-bg-dark {
+    @apply bg-gradient-to-br from-dark-800 to-dark-900;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s infinite;
+  }
+
+  /* Text utilities */
+  .text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-dark {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Layout utilities */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg border border-white border-opacity-20;
+  }
+
+  .glass-dark {
+    @apply bg-dark-800 bg-opacity-20 backdrop-filter backdrop-blur-lg border border-white border-opacity-10;
+  }
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-before: always;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    @apply border-2 border-black;
+  }
+}
